@@ -1,0 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-if="show">Você estão me vendo :D</p>
+    <!-- v-else sempre vem abaixo do v-if, e funciona igual ao if/else do js -->
+    <p v-else>Eu estou visível?</p>
+    <!-- A diferença é que o v-show não remove o elemento do DOM, apenas aplica um style="display: none;"-->
+    <p v-show="show">Ainda estou por aqui no DOM</p>
+
+    <button v-on:click="show = !show">Mostrar / Esconder</button>
+
+    <br><br>
+    <ul>
+        <li v-for="(country, index) in countries">{{ index }}: {{ country.name }} - {{ country.gbp }}</li>
+    </ul>
+</div>
+
+<script src="app.js"></script>
