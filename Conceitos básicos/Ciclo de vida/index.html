@@ -1,0 +1,10 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ name }}</p>
+    <button @click="changeName">Alterar nome</button>
+    <!-- Quando a instância é destruida, nada dela podera ser utilizado após, inclusive o funcionamento botão de alterar nome acima -->
+    <button @click="destroyInstance">Destruir instância</button>
+</div>
+
+<script src="app.js"></script>
