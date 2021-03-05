@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style>
+    .red {
+        background: red;
+    }
+
+    .green {
+        background: green;
+    }
+
+    .blue {
+        background: blue;
+    }
+</style>
+
+<div id="app">
+    <!-- Diretivas são prefixos que começam com v-, que define que são do Vue -->
+    <span v-html="title"></span>
+    <button v-on:click="h1">Mudar para h1</button>
+    <button v-on:click="h2">Mudar para h2</button>
+    <button v-on:click="h3">Mudar para h3</button>
+
+    <!-- Ignora o qualquer escrita html, parecido com o que o <code> e o <pre> do próprio html. -->
+    <p v-pre>{{ name }}</p>
+
+    <!-- Utiliza-se quando precisa renderizar apenas uma vez algo que não se se altera -->
+    <p v-once>{{ name }}</p>
+
+    <!-- v-text e v-on:click acabam tendo a mesma função nesse quesito -->
+    <p v-on:click="name">{{ name }}</p>
+    <p v-text="name">Michel</p>
+
+    <button v-on:click="changeName">Change names</button>
+
+    <input type="text" v-on:input="myClass = $event.target.value">
+    <!-- v-bind: mantem o elemento sempre atualizado de acordo com o valor definido dentro da instância do Vue -->
+    <p v-bind:class="myClass">Classe CSS: {{ myClass }}</p>
+    
+    <h2>{{ inputText }}</h2>
+    <input type="text" v-model="inputText">
+    <!-- MVVM, Model View, View Model -->
+    <!-- Model = data, View, o que o client vê -->
+    <!-- two-way data-binding -->
+</div>
+
+<script src="app.js"></script>
