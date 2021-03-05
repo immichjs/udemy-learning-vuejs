@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <b-container>
+    <b-row align-v="center">
+      <Card v-for="(curso, index) in cursos" :key="index" :name="curso.name"></Card>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import Card from '@/components/Card.vue'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      cursos: []
+    }
+  },
+  mounted() {
+        this.fetchData()
+  },
   components: {
-    HelloWorld
+    Card
+  },
+  methods: {
+    async fetchData() {
+        const res = await fetch('cursos.json')
+        const val = await res.json()
+        this.cursos = val
+        console.log(this.cursos)
+    }
   }
 }
 </script>
